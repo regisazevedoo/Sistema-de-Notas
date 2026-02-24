@@ -7,13 +7,14 @@ function TableStudents({ list }) {
           <th>Classe</th>
           <th>Nota 1</th>
           <th>Nota 2</th>
+          <th>Nota 3</th>
           <th>Média</th>
           <th>Situação</th>
         </tr>
       </thead>
       <tbody>
         {list.map((aluno, index) => {
-          const finalGrade = (Number(aluno.score1) + Number(aluno.score2)) / 2;
+          const finalGrade = (Number(aluno.score1) + Number(aluno.score2) + Number(aluno.score3)) / 3;
           const situation = finalGrade >= 7 ? "Aprovado ✅" : "Reprovado ❌";
 
           return (
@@ -22,6 +23,7 @@ function TableStudents({ list }) {
               <td>{aluno.studentClass}</td>
               <td>{aluno.score1}</td>
               <td>{aluno.score2}</td>
+              <td>{aluno.score3}</td>
               <td>{finalGrade}</td>
               <td>{situation}</td>
             </tr>

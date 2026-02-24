@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import TableStudents from "./components/TableStudents";
 
@@ -7,8 +7,12 @@ function App() {
   const [studentClass, setStudentClass] = useState("");
   const [score1, setScore1] = useState("");
   const [score2, setScore2] = useState("");
+  const [score3, setScore3] = useState("");
 
-  const [studentsList, setStudentsList] = useState([]);
+  const [studentsList, setStudentsList] = useState(() => {
+    const saved = localStorage.getItem("meus_alunos");
+    return saved ? JSON.parse(saved) : [];
+  });
 
   const saveData = () => {
     const newStudent = {
@@ -16,6 +20,7 @@ function App() {
       studentClass: studentClass,
       score1: score1,
       score2: score2,
+      score3: score3,
     };
 
     setStudentsList([...studentsList, newStudent]);
@@ -24,7 +29,12 @@ function App() {
     setStudentClass("");
     setScore1("");
     setScore2("");
+    setScore3("");
   };
+
+  useEffect(() => {
+    localStorage.setItem("meus_alunos", JSON.stringify(studentsList));
+  }, [studentsList]);
 
   return (
     <div className="container-fluid mt-5">
@@ -66,6 +76,15 @@ function App() {
                 className="form-control"
                 value={score2}
                 onChange={(e) => setScore2(e.target.value)}
+              />
+            </div>
+            <div className="col">
+              <label className="form-label">Nota 3:</label>
+              <input
+                type="number"
+                className="form-control"
+                value={score3}
+                onChange={(e) => setScore3(e.target.value)}
               />
             </div>
           </div>
