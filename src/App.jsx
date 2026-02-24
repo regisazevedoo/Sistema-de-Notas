@@ -15,6 +15,15 @@ function App() {
   });
 
   const saveData = () => {
+    const s1 = parseFloat(score1);
+    const s2 = parseFloat(score2);
+    const s3 = parseFloat(score3);
+
+    if (s1<0 || s1>10 || s2<0 || s2>10 || s3<0 || s3>10){
+      alert("Uma ou mais notas estão inválidas! Use apenas valores entre 0 e 10.");
+      return;
+    }
+
     const newStudent = {
       name: name,
       studentClass: studentClass,
@@ -30,6 +39,33 @@ function App() {
     setScore1("");
     setScore2("");
     setScore3("");
+  };
+
+  const deleteData = () => {
+    const studentsQuantity = studentsList.length;
+
+    if (studentsQuantity === 0) {
+      alert("A lista já está vazia!");
+      return;
+    }
+
+    const confirmation = window.confirm(
+      `Você tem ${studentsQuantity} alunos cadastrados. Tem certeza que deseja apagar o histórico deles?`
+    );
+
+    if (confirmation) {
+      localStorage.removeItem("meus_alunos");
+
+      setStudentsList([]);
+
+      setName("");
+      setStudentClass("");
+      setScore1("");
+      setScore2("");
+      setScore3("");
+
+      alert("Histórico de notas apagado com sucesso!");
+    }
   };
 
   useEffect(() => {
@@ -64,6 +100,8 @@ function App() {
               <label className="form-label">Nota 1:</label>
               <input
                 type="number"
+                min="0"
+                max="10"
                 className="form-control"
                 value={score1}
                 onChange={(e) => setScore1(e.target.value)}
@@ -73,6 +111,8 @@ function App() {
               <label className="form-label">Nota 2:</label>
               <input
                 type="number"
+                min="0"
+                max="10"
                 className="form-control"
                 value={score2}
                 onChange={(e) => setScore2(e.target.value)}
@@ -82,6 +122,8 @@ function App() {
               <label className="form-label">Nota 3:</label>
               <input
                 type="number"
+                min="0"
+                max="10"
                 className="form-control"
                 value={score3}
                 onChange={(e) => setScore3(e.target.value)}
@@ -98,6 +140,15 @@ function App() {
             </button>
           </div>
           <TableStudents list={studentsList} />
+          <div className="mb-3 mt-5 d-flex justify-content-center">
+            <button
+              type="button"
+              className="btn btn-danger w-50 d-flex flex-column align-items-center"
+              onClick={deleteData}
+            >
+              Excluir tudo
+            </button>
+          </div>
         </div>
       </div>
     </div>
