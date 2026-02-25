@@ -1,16 +1,97 @@
-# React + Vite
+<h1>Sistema de Notas Escolares</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web desenvolvida em React para cadastro e gerenciamento de notas de alunos.
+O sistema permite adicionar alunos, calcular automaticamente a média final e exibir a situação (Aprovado ou Reprovado), além de persistir os dados no navegador utilizando localStorage.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+<h2>🚀 Funcionalidades</h2>
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+✅ Cadastro de aluno (nome e classe)
 
-## Expanding the ESLint configuration
+✅ Inserção de 3 notas por aluno
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+✅ Validação de notas (valores entre 0 e 10)
+
+✅ Cálculo automático da média
+
+✅ Exibição da situação:
+
+Aprovado (média ≥ 7)
+
+Reprovado (média < 7)
+
+✅ Persistência automática com localStorage
+
+✅ Exclusão completa do histórico de alunos
+
+🚧 Busca por nome (em desenvolvimento)
+
+
+<br>
+<h2>🛠️ Tecnologias Utilizadas</h2>
+
+React (Hooks: useState, useEffect)
+
+JavaScript (ES6+)
+
+Bootstrap
+
+HTML5
+
+CSS3
+
+localStorage API
+
+
+
+<br>
+<h2>▶️ Como Executar o Projeto</h2>
+
+1. Clone o repositório:
+
+git clone https://github.com/seu-usuario/seu-repositorio.git
+
+2. Acesse a pasta do projeto:
+
+cd nome-do-projeto
+
+3. Instale as dependências:
+
+npm install
+
+4. Execute o projeto:
+
+npm run dev
+
+ou
+
+npm start
+
+
+<br>
+<h2>🚀 Próximas Melhorias</h2>
+
+🔎 Finalizar implementação da busca de alunos por nome
+
+✏️ Permitir edição de notas após cadastro
+
+🗑️ Remoção individual de alunos
+
+🎨 Melhorias no layout e refinamento visual da interface
+
+
+<br>
+<h2>🎯 Objetivo do Projeto</h2>
+
+Projeto desenvolvido com foco na consolidação de fundamentos em React, especialmente:
+
+Componentização
+
+Gerenciamento de estado
+
+Persistência de dados no navegador
+
+Organização e clareza de código
+
+Evolução contínua da aplicação

@@ -14,13 +14,17 @@ function App() {
     return saved ? JSON.parse(saved) : [];
   });
 
+  const [searchName, setSearchName] = useState("");
+
   const saveData = () => {
     const s1 = parseFloat(score1);
     const s2 = parseFloat(score2);
     const s3 = parseFloat(score3);
 
-    if (s1<0 || s1>10 || s2<0 || s2>10 || s3<0 || s3>10){
-      alert("Uma ou mais notas estão inválidas! Use apenas valores entre 0 e 10.");
+    if (s1 < 0 || s1 > 10 || s2 < 0 || s2 > 10 || s3 < 0 || s3 > 10) {
+      alert(
+        "Uma ou mais notas estão inválidas! Use apenas valores entre 0 e 10.",
+      );
       return;
     }
 
@@ -50,7 +54,7 @@ function App() {
     }
 
     const confirmation = window.confirm(
-      `Você tem ${studentsQuantity} alunos cadastrados. Tem certeza que deseja apagar o histórico deles?`
+      `Você tem ${studentsQuantity} alunos cadastrados. Tem certeza que deseja apagar o histórico deles?`,
     );
 
     if (confirmation) {
@@ -140,14 +144,25 @@ function App() {
             </button>
           </div>
           <TableStudents list={studentsList} />
-          <div className="mb-3 mt-5 d-flex justify-content-center">
-            <button
-              type="button"
-              className="btn btn-danger w-50 d-flex flex-column align-items-center"
-              onClick={deleteData}
-            >
-              Excluir tudo
-            </button>
+          <div className="row mb-3 mt-5 justify-content-center">
+            <div className="col-6">
+              <button
+                type="button"
+                className="btn btn-danger w-100"
+                onClick={deleteData}
+              >
+                Excluir tudo
+              </button>
+            </div>
+            <div className="col-6">
+              <input
+                type="text"
+                className="form-control w-100"
+                placeholder="Pesquisar aluno pelo nome... 🔍"
+                value={searchName}
+                onChange={(e) => setSearchName(e.target.value)}
+              />
+            </div>
           </div>
         </div>
       </div>
