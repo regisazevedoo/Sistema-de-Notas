@@ -3,6 +3,7 @@
 Aplicação web desenvolvida em React para cadastro e gerenciamento de notas de alunos.
 O sistema permite adicionar alunos, calcular automaticamente a média final e exibir a situação (Aprovado ou Reprovado), além de persistir os dados no navegador utilizando localStorage.
 
+![Demonstração do Sistema](./src/print/PrintSistema.png)
 
 
 <h2>🚀 Funcionalidades</h2>
