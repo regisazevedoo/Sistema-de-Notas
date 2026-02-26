@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import TableStudents from "./components/TableStudents";
+import imageSystem from "./assets/10048879.png"
 
 function App() {
   const [name, setName] = useState("");
@@ -47,7 +48,6 @@ function App() {
 
   const deleteData = () => {
     const studentsQuantity = studentsList.length;
-
     if (studentsQuantity === 0) {
       alert("A lista já está vazia!");
       return;
@@ -59,15 +59,12 @@ function App() {
 
     if (confirmation) {
       localStorage.removeItem("meus_alunos");
-
       setStudentsList([]);
-
       setName("");
       setStudentClass("");
       setScore1("");
       setScore2("");
       setScore3("");
-
       alert("Histórico de notas apagado com sucesso!");
     }
   };
@@ -77,10 +74,11 @@ function App() {
   }, [studentsList]);
 
   return (
-    <div className="container-fluid mt-5">
-      <div className="row justify-content-center">
-        <div className="col-11 col-md-10 col-lg-9">
-          <h1 className="text-center mb-4">Sistema de Notas</h1>
+    <div className="container-fluid mt-4">
+      {/*<h1 className="text-center mb-5">Sistema de Notas</h1>*/}
+
+      <div className="row justify-content-center mb-5 align-items-center">
+        <div className="col-md-5">
           <div className="mb-3">
             <label className="form-label">Nome do aluno:</label>
             <input
@@ -90,6 +88,7 @@ function App() {
               onChange={(e) => setName(e.target.value)}
             />
           </div>
+
           <div className="mb-3">
             <label className="form-label">Classe:</label>
             <input
@@ -99,71 +98,82 @@ function App() {
               onChange={(e) => setStudentClass(e.target.value)}
             />
           </div>
+
           <div className="row mb-3">
             <div className="col">
-              <label className="form-label">Nota 1:</label>
+              <label className="form-label">N1</label>
               <input
                 type="number"
-                min="0"
-                max="10"
                 className="form-control"
                 value={score1}
                 onChange={(e) => setScore1(e.target.value)}
               />
             </div>
             <div className="col">
-              <label className="form-label">Nota 2:</label>
+              <label className="form-label">N2</label>
               <input
                 type="number"
-                min="0"
-                max="10"
                 className="form-control"
                 value={score2}
                 onChange={(e) => setScore2(e.target.value)}
               />
             </div>
             <div className="col">
-              <label className="form-label">Nota 3:</label>
+              <label className="form-label">N3</label>
               <input
                 type="number"
-                min="0"
-                max="10"
                 className="form-control"
                 value={score3}
                 onChange={(e) => setScore3(e.target.value)}
               />
             </div>
           </div>
-          <div className="mb-3">
-            <button
-              type="button"
-              className="btn btn-primary w-100"
-              onClick={saveData}
-            >
-              Adicionar nota
-            </button>
-          </div>
-          <TableStudents list={studentsList} />
-          <div className="row mb-3 mt-5 justify-content-center">
-            <div className="col-6">
-              <button
-                type="button"
-                className="btn btn-danger w-100"
-                onClick={deleteData}
-              >
-                Excluir tudo
-              </button>
-            </div>
-            <div className="col-6">
+
+          <button
+            type="button"
+            className="btn btn-primary w-100"
+            onClick={saveData}
+          >
+            Adicionar nota
+          </button>
+        </div>
+
+        <div className="col-md-5 d-none d-md-block">
+          <img
+            src={imageSystem}
+            alt="Educação"
+            className=""
+            style={{ maxHeight: "500px", width: "100%",}}
+          />
+        </div>
+      </div>
+
+      <hr style={{ width: '83%' }} className="mx-auto" />
+
+      <div className="row justify-content-center mt-5">
+        <div className="col-11 col-lg-10">
+          <div className="row mb-3">
+            <div className="col-md-8">
               <input
                 type="text"
-                className="form-control w-100"
-                placeholder="Pesquisar aluno pelo nome... 🔍"
+                className="form-control"
+                placeholder="Pesquisar aluno... 🔍"
                 value={searchName}
                 onChange={(e) => setSearchName(e.target.value)}
               />
             </div>
+            <div className="col-md-4">
+              <button
+                type="button"
+                className="btn btn-outline-danger w-100"
+                onClick={deleteData}
+              >
+                Limpar Banco
+              </button>
+            </div>
           </div>
+
+          <TableStudents list={studentsList} />
         </div>
       </div>
     </div>
