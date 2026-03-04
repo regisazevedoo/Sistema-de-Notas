@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import TableStudents from "./components/TableStudents";
-import imageSystem from "./assets/10048879.png"
+import imageSystem from "./assets/10048879.png";
 
 function App() {
   const [name, setName] = useState("");
@@ -73,6 +73,10 @@ function App() {
     localStorage.setItem("meus_alunos", JSON.stringify(studentsList));
   }, [studentsList]);
 
+  const filteredStudents = studentsList.filter((aluno) => {
+    return aluno.name.toLowerCase().includes(searchName.toLocaleLowerCase());
+  });
+
   return (
     <div className="container-fluid mt-4">
       {/*<h1 className="text-center mb-5">Sistema de Notas</h1>*/}
@@ -143,12 +147,12 @@ function App() {
             src={imageSystem}
             alt="Educação"
             className=""
-            style={{ maxHeight: "500px", width: "100%",}}
+            style={{ maxHeight: "500px", width: "100%" }}
           />
         </div>
       </div>
 
-      <hr style={{ width: '83%' }} className="mx-auto" />
+      <hr style={{ width: "83%" }} className="mx-auto" />
 
       <div className="row justify-content-center mt-5">
         <div className="col-11 col-lg-10">
@@ -173,7 +177,7 @@ function App() {
             </div>
           </div>
 
-          <TableStudents list={studentsList} />
+          <TableStudents list={filteredStudents} />
         </div>
       </div>
     </div>
