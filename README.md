@@ -26,8 +26,6 @@ Reprovado (média < 7)
 
 ✅ Exclusão completa do histórico de alunos
 
-🚧 Busca por nome (em desenvolvimento)
-
 
 <br>
 <h2>🛠️ Tecnologias Utilizadas</h2>
@@ -72,8 +70,6 @@ npm start
 
 <br>
 <h2>🚀 Próximas Melhorias</h2>
-
-🔎 Finalizar implementação da busca de alunos por nome
 
 ✏️ Permitir edição de notas após cadastro
 
