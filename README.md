@@ -1,5 +1,7 @@
 <h1>Sistema de Notas Escolares</h1>
 
+Confira em: <a href="https://regisazevedoo.github.io/Sistema-de-Notas/" target="_blank">regisazevedoo.github.io/Sistema-de-Notas/</a>
+
 Aplicação web desenvolvida em React para cadastro e gerenciamento de notas de alunos.
 O sistema permite adicionar alunos, calcular automaticamente a média final e exibir a situação (Aprovado ou Reprovado), além de persistir os dados no navegador utilizando localStorage.
 
@@ -42,30 +44,6 @@ CSS3
 
 localStorage API
 
-
-
-<br>
-<h2>▶️ Como Executar o Projeto</h2>
-
-1. Clone o repositório:
-
-git clone https://github.com/seu-usuario/seu-repositorio.git
-
-2. Acesse a pasta do projeto:
-
-cd nome-do-projeto
-
-3. Instale as dependências:
-
-npm install
-
-4. Execute o projeto:
-
-npm run dev
-
-ou
-
-npm start
 
 
 <br>
