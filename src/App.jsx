@@ -165,7 +165,7 @@ function App() {
             <div className="col-md-4">
               <button
                 type="button"
-                className="btn btn-outline-danger w-100"
+                className="btn btn-outline-danger w-100 mt-3 mt-md-0"
                 onClick={deleteData}
               >
                 Limpar Banco

@@ -1,43 +1,45 @@
 function TableStudents({ list }) {
   return (
-    <table className="table mt-5">
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Classe</th>
-          <th>Nota 1</th>
-          <th>Nota 2</th>
-          <th>Nota 3</th>
-          <th>Média</th>
-          <th>Situação</th>
-        </tr>
-      </thead>
-      <tbody>
-        {list.map((aluno, index) => {
-          const finalGrade =
-            (Number(aluno.score1) +
-              Number(aluno.score2) +
-              Number(aluno.score3)) /
-            3;
-          const situation = finalGrade >= 7 ? "Aprovado ✅" : "Reprovado ❌";
+    <div className="table-responsive">
+      <table className="table mt-5">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Classe</th>
+            <th>Nota 1</th>
+            <th>Nota 2</th>
+            <th>Nota 3</th>
+            <th>Média</th>
+            <th>Situação</th>
+          </tr>
+        </thead>
+        <tbody>
+          {list.map((aluno, index) => {
+            const finalGrade =
+              (Number(aluno.score1) +
+                Number(aluno.score2) +
+                Number(aluno.score3)) /
+              3;
+            const situation = finalGrade >= 7 ? "Aprovado ✅" : "Reprovado ❌";
 
-          return (
-            <tr
-              key={index}
-              className={finalGrade >= 7 ? "table-success" : "table-danger"}
-            >
-              <td>{aluno.name}</td>
-              <td>{aluno.studentClass}</td>
-              <td>{aluno.score1}</td>
-              <td>{aluno.score2}</td>
-              <td>{aluno.score3}</td>
-              <td>{finalGrade}</td>
-              <td>{situation}</td>
-            </tr>
-          );
-        })}
-      </tbody>
-    </table>
+            return (
+              <tr
+                key={index}
+                className={finalGrade >= 7 ? "table-success" : "table-danger"}
+              >
+                <td>{aluno.name}</td>
+                <td>{aluno.studentClass}</td>
+                <td>{aluno.score1}</td>
+                <td>{aluno.score2}</td>
+                <td>{aluno.score3}</td>
+                <td>{finalGrade.toFixed(2)}</td>
+                <td>{situation}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
